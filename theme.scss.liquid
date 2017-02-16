@@ -1,0 +1,524 @@
+/* General */
+$color-primary: {{ settings.style.color_primary | default: 'inherit' }};
+$color-body-bg: {{ settings.style.color_body_bg | default: 'inherit' }};
+$color-content-bg: {{ settings.style.color_content_bg | default: 'inherit' }};
+$color-border: {{ settings.style.color_border | default: 'inherit' }};
+$type-base-family: '{{ settings.style.type_base_family | default: 'inherit' }}';
+$type-base-size: {{ settings.style.type_base_size | default: 'inherit' }};
+
+/* Navbar */
+$color-navabar-bg: {{ settings.style.color_navbar_bg | default: 'inherit' }};
+$color-navabar-links: {{ settings.style.color_navbar_links | default: 'inherit' }};
+$type-navbar-family: '{{ settings.style.type_navbar_family | default: 'inherit' }}';
+$type-navbar-size: {{ settings.style.type_navbar_size | default: 'inherit' }};
+
+/* Buttons */
+$color-button-primary-bg: {{ settings.style.color_button_primary_bg | default: 'inherit' }};
+$color-button-secondary-bg: {{ settings.style.color_button_secondary_bg | default: 'inherit' }};
+
+/* Text */
+$color-titles: {{ settings.style.color_titles | default: 'inherit' }};
+$color-subtitles: {{ settings.style.color_subtitles | default: 'inherit' }};
+$color-links: {{ settings.style.color_links | default: 'inherit' }};
+$color-paragraphs: {{ settings.style.color_paragraphs | default: 'inherit' }};
+$color-button-primary-text: {{ settings.style.color_button_primary_text | default: 'inherit' }};
+$color-button-secondary-text: {{ settings.style.color_button_secondary_text | default: 'inherit' }};
+$color-footer-bg: {{ settings.style.color_footer_bg | default: 'inherit' }};
+$color-footer-text: {{ settings.style.color_footer_text | default: 'inherit' }};
+$color-footer-links: {{ settings.style.color_footer_links | default: 'inherit' }};
+$type-title-family: '{{ settings.style.type_title_family | default: 'inherit' }}';
+$type-title-size: {{ settings.style.type_title_size | default: 'inherit' }};
+$type-subtitle-family: '{{ settings.style.type_subtitle_family | default: 'inherit' }}';
+$type-subtitle-size: {{ settings.style.type_subtitle_size | default: 'inherit' }};
+$type-paragraph-family: '{{ settings.style.type_paragraph_family | default: 'inherit' }}';
+$type-paragraph-size: {{ settings.style.type_paragraph_size | default: 'inherit' }};
+$type-button-family: '{{ settings.style.type_paragraph_family | default: 'inherit' }}';
+$type-button-size: {{ settings.style.type_paragraph_size | default: 'inherit' }};
+
+/* Home Page */
+$home-header-background: {{ settings.style.home.header_bg | default: '#ffffff' }};
+$home-header-text-color: {{ settings.style.home.header_text_color | default: 'inherit' }};
+$home-header-background-image: "{{ settings.style.home.header_background_image | default: '' }}";
+
+/* Product Page */
+$product-header-background: {{ settings.style.product.header_bg | default: '#ffffff' }};
+$product-header-text-color: {{ settings.style.product.header_text_color | default: 'inherit' }};
+$product-header-background-image: "{{ settings.style.product.header_background_image | default: ''}}";
+
+/* General */
+
+html.turbolinks-progress-bar::before {
+  background-color: $color-primary !important;
+}
+
+body {
+  font-family: $type-base-family, Helvetica, Arial, sans-serif, sans-serif;;
+  font-size: $type-base-size;
+  background-color: $color-body-bg;
+}
+
+.page {
+  background-color: $color-content-bg;
+}
+
+/* Text */
+
+h1, h2 {
+  font-family: $type-title-family;
+
+  * {
+    color: $color-titles;
+  }
+}
+
+h3, h4, h5 {
+  font-family: $type-subtitle-family;
+
+  * {
+    color: $color-subtitles;
+  }
+}
+
+h1 {
+  * {
+    font-size: $type-title-size * 1.3;
+  }
+}
+
+h2 {
+  * {
+    font-size: $type-title-size;
+  }
+}
+
+h3 {
+  * {
+    font-size: $type-subtitle-size * 1.3;
+  }
+}
+
+h4 {
+  * {
+    font-size: $type-subtitle-size;
+  }
+}
+
+h5 {
+  * {
+    font-size: $type-subtitle-size * 0.7;
+  }
+}
+
+p {
+  font-family: $type-paragraph-family;
+  font-size: $type-paragraph-size;
+
+  * {
+    color: $color-paragraphs;
+  }
+}
+
+a {
+  color: $color_links;
+}
+
+.page-footer {
+  background-color: $color-footer-bg;
+
+  * {
+    color: $color-footer-text;
+  }
+
+  a {
+    * {
+      color: $color-footer-links;
+    }
+
+    &:hover {
+      * {
+        color: lighten($color-footer-text, 45%) !important;
+      }
+    }
+  }
+
+  b {
+    * {
+      color: lighten($color-footer-text, 15%) !important;
+    }
+  }
+
+  h2 {
+    * {
+      color: lighten($color-footer-text, 35%);
+    }
+  }
+}
+
+/* Navbar */
+
+header.navbar {
+  background-color: $color-navabar-bg;
+
+  a,
+  .navbar-brand,
+  .dropdown a {
+    color: rgba($color-navabar-links, .6) !important;
+
+    &:hover, &:focus {
+      color: $color-navabar-links !important;;
+    }
+  }
+
+  .nav {
+    a {
+      font-family: $type-navbar-family;
+      font-size: $type-navbar-size;
+    }
+  }
+
+  $dropdown-menu-bg: lighten($color-navabar-bg, 3%);
+  .dropdown-menu {
+    background-color: $dropdown-menu-bg;
+
+    &:before {
+      background-color: $dropdown-menu-bg;
+    }
+
+    li {
+      a {
+        &:hover {
+          @if (lightness($dropdown-menu-bg) > 50) {
+            background-color: darken($color-navabar-bg, 2%);
+          } @else {
+            background-color: $color-navabar-bg;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Buttons */
+
+.btn {
+  font-family: $type-button-family;
+
+  * {
+    font-size: $type-button-size;
+  }
+}
+
+.btn-default {
+  background-color: $color-button-secondary-bg;
+  border-color: darken($color-button-secondary-bg, 15%);
+
+  * {
+    color: $color-button-secondary-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-button-secondary-bg, 5%);
+    border-color: darken($color-button-secondary-bg, 5%);
+  }
+
+  &:active {
+    &,
+    &:hover {
+      background-color: darken($color-button-secondary-bg, 8%) !important;
+      border-color: darken($color-button-secondary-bg, 8%) !important;
+    }
+  }
+}
+
+.open {
+  > .btn-default.dropdown-toggle {
+    &,
+    &:focus,
+    &:hover {
+      background-color: darken($color-button-secondary-bg, 8%);
+      border-color: darken($color-button-secondary-bg, 8%);
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $color-button-primary-bg;
+  border-color: $color-button-primary-bg;
+
+  * {
+    color: $color-button-primary-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: lighten($color-button-primary-bg, 5%);
+    border-color: lighten($color-button-primary-bg, 5%);
+  }
+
+  &:active {
+    &,
+    &:hover {
+      background-color: darken($color-button-primary-bg, 8%) !important;
+      border-color: darken($color-button-primary-bg, 8%) !important;
+    }
+  }
+}
+
+.open {
+  > .btn-primary.dropdown-toggle {
+    &,
+    &:focus,
+    &:hover {
+      background-color: darken($color-button-primary-bg, 8%);
+      border-color: darken($color-button-primary-bg, 8%);
+    }
+  }
+}
+
+/* List Group */
+.list-group {
+  .list-group-item {
+    &.active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+
+      @if (lightness($color-primary) > 50) {
+        * {
+          color: #222;
+        }
+      } @else {
+        * {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* Home Page */
+
+.home-page {
+  .home-header {
+    background-color: $home-header-background;
+    background-image: url($home-header-background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    * {
+      color: $home-header-text-color !important;
+    }
+  }
+}
+
+/* Product Page */
+
+.product-page {
+  .product-header {
+    background-color: $product-header-background;
+    background-image: url($product-header-background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h2,
+    h4,
+    p,
+    .price {
+      color: $product-header-text-color;
+    }
+  }
+}
+
+/* Lesson Page */
+.lesson-page {
+  .lesson-page-sidebar {
+    .course-content {
+      .lesson {
+        &.active {
+          .content-lesson {
+            .class-info {
+              .lesson-title {
+                &:hover {
+                  span {
+                    background-color: rgba($color-primary, .8);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* 
+----
+----
+----
+HEADER WIDOOX 
+----
+----
+----
+*/
+
+
+
+body {
+	margin: 0;
+	transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+#widoox-header-menu {
+	padding: 0 15px;
+	background-color: #1f1f1f;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	.widoox-wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 15px;
+	    color: rgba(255, 255, 255, 0.8);
+	}
+	#menu-menu-categoria {
+		display: inline-block;
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+		margin: 0;
+		padding: 0;
+	    font-size: 11px;
+	    li {
+			margin: 0;
+		    padding: 0;
+		    display: inline-block;
+		    a	{
+				text-decoration: none;
+				display: block;
+			    padding: 0 15px;
+			    line-height: 46px;
+				color: inherit;
+				text-transform: uppercase;
+				font-family: 'booster-medium', 'Helvetica', sans-serif!important;
+			}
+		}
+	}
+	#right-nav {
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+		float: right;
+		margin: 0;
+		padding: 0;
+	    font-size: 11px;
+	    font-size: 11px;
+	    li {
+	    	display: inline-block;
+	    	list-style: none;
+	    	padding: 0;
+	    	margin: 0;
+	    	border-right: 1px solid rgba(255, 255, 255, 0.1);
+	    	a {
+				text-decoration: none;
+				display: block;
+			    padding: 0 15px;
+			    line-height: 46px;
+				color: inherit;
+				text-transform: uppercase;
+				font-family: 'booster-medium', 'Helvetica', sans-serif!important;
+				i {
+					font-size: 18px;
+   					vertical-align: middle;
+				}
+			}
+	    }
+	}
+	@media all and (max-width: 767px) {
+		#widoox-fade {
+			position: fixed;
+		    width: 100vw;
+		    height: 100vh;
+		    top: 0;
+		    background: rgba(151, 151, 151, 0.5);
+		    left: 0;
+		    z-index: 999;
+		    display: none;
+			cursor: pointer;
+		}
+		.widoox-wrapper {
+			width: 280px;
+		    height: 100vh;
+		    background-color: white;
+		    color: #f11658;
+		    margin: 0;
+		    padding: 20px 10px 20px 20px;
+		    position: fixed;
+		    z-index: 9999;
+		    left: -310px;
+		    top: 0;
+		    li {
+		    	display: block !important;
+		    	a {
+		    		padding: 19px 0 16px !important;
+		    		line-height: initial !important;
+   					font-weight: 600;
+		    	}
+		    }
+		    #right-nav {
+		    	float: none;
+		    }
+		}
+	}
+		
+
+}
+
+#widoox-header-bar {	
+	padding: 0 15px;
+	background-color: #1f1f1f;
+	.widoox-wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 15px;
+		position: relative;
+	}
+	#widoox-logo {
+		padding: 20px 0;
+		margin: 12px 10px;
+		max-height: 60px;
+		width: auto;
+	}
+	#widoox-ad {
+		position: absolute;
+	    right: 15px;
+	    top: 50%;
+	    max-width: calc(100% - 300px);
+	    width: 712px;
+	    transform: translate(0, -50%);
+	}
+	@media all and (max-width: 767px) {
+		text-align: center;
+		#menu-bars {
+			cursor: pointer;
+			height: 13px;
+		    width: 17px;
+		    float: left;
+		    margin: 30px 0;
+		    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ededed+100&1+0,1+20,0+21,0+40,1+41,1+60,0+61,0+80,1+81,0+100,0+100,0+100,1+100 */
+			background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(251,251,251,1) 20%, rgba(251,251,251,0) 21%, rgba(248,248,248,0) 40%, rgba(248,248,248,1) 41%, rgba(244,244,244,1) 60%, rgba(244,244,244,0) 61%, rgba(241,241,241,0) 80%, rgba(241,241,241,1) 81%, rgba(237,237,237,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(251,251,251,1) 20%,rgba(251,251,251,0) 21%,rgba(248,248,248,0) 40%,rgba(248,248,248,1) 41%,rgba(244,244,244,1) 60%,rgba(244,244,244,0) 61%,rgba(241,241,241,0) 80%,rgba(241,241,241,1) 81%,rgba(237,237,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(251,251,251,1) 20%,rgba(251,251,251,0) 21%,rgba(248,248,248,0) 40%,rgba(248,248,248,1) 41%,rgba(244,244,244,1) 60%,rgba(244,244,244,0) 61%,rgba(241,241,241,0) 80%,rgba(241,241,241,1) 81%,rgba(237,237,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+
+		}
+		#widoox-logo {
+			height: 30px;
+			width: auto;
+			margin: 0 auto;
+		}
+		#widoox-ad {
+			display: none;
+		}
+	}
+}
+
+
+

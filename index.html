@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Widoox Header</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<div id="widoox-header-wrapper">
+	<div id="widoox-header-menu">
+		<div id="widoox-fade"></div>
+		<div class="widoox-wrapper">
+				<ul id="menu-menu-categoria" class="visible-xs">
+					<li><a href="http://cursos.widoox.com.br/users/sign_in">Home</a></li>
+					<li><a href="http://widoox.com.br/oratoria/">Cursos</a></li>
+					<li><a href="http://widoox.com.br/desenvolvimento-profissional/">Blog</a></li>
+					<li><a href="http://widoox.com.br/vida-de-freela/">Materiais</a></li>
+					<li><a href="http://widoox.com.br/vida-de-freela/">Contato</a></li>
+				</ul>
+				<ul id="right-nav">
+<!-- 					<li class="widoox-dropdown">
+						<a href="">ALO ALO ALO</a>
+						<ul>
+							<li><a href="">OIE</a></li>
+							<li><a href="">TCHAU</a></li>
+						</ul>
+					</li> -->
+					<li><a href=""><i class="icon-basket"></i></a></li>
+					<li><a href="">
+						Entrar
+					</a></li>
+						
+				</ul>
+		</div>
+	</div>
+	<div id="widoox-header-bar">
+		<div class="widoox-wrapper">
+			<div id="menu-bars"></div>
+			<img id="widoox-logo" src="http://www.widoox.com.br/wp-content/uploads/2016/05/logo-widoox-01.png" alt="Widoox">
+			<img id="widoox-ad" src="http://widoox.com.br/wp-content/uploads/2017/02/banner_aula_gratis.gif">
+		</div>
+			
+	</div>
+	<div id="widoox-wp-menu" class="hidden-xs">
+		<div class="widoox-wrapper">
+			<ul>
+				<li><a href="http://cursos.widoox.com.br/users/sign_in">Home</a></li>
+				<li><a href="http://widoox.com.br/oratoria/">Cursos</a></li>
+				<li><a href="http://widoox.com.br/desenvolvimento-profissional/">Blog</a></li>
+				<li><a href="http://widoox.com.br/vida-de-freela/">Materiais</a></li>
+				<li><a href="http://widoox.com.br/vida-de-freela/">Contato</a></li>
+			</ul>
+		</div>
+			
+	</div>
+</div>
+<div>
+	<p>Available conditional tags ↑ Back to top
+
+All conditional tags test whether a condition is met, and then return either TRUE or FALSE. Conditions under which tags output TRUE are listed below the conditional tags.
+
+The list below holds the main conditional tags. To see all conditional tags, visit the WooCommerce API Docs.
+
+WooCommerce page
+is_woocommerce()
+Returns true if on a page which uses WooCommerce templates (cart and checkout are standard pages with shortcodes and thus are not included).
+Main shop page
+is_shop()
+Returns true when on the product archive page (shop).
+Product category page
+is_product_category()
+Returns true when viewing a product category archive.
+is_product_category( 'shirts' )
+When the product category page for the ‘shirts’ category is being displayed.
+is_product_category( array( 'shirts', 'games' ) )
+When the product category page for the ‘shirts’ or ‘games’ category is being displayed.
+Product tag page
+is_product_tag()
+Returns true when viewing a product tag archive
+is_product_tag( 'shirts' )
+When the product tag page for the ‘shirts’ tag is being displayed.
+is_product_tag( array( 'shirts', 'games' ) )
+When the product tag page for the ‘shirts’ or ‘games’ tags is being displayed.
+Single product page
+is_product()
+Returns true on a single product page. Wrapper for is_singular.
+Cart page
+is_cart()
+Returns true on the cart page.
+Checkout page
+is_checkout()
+Returns true on the checkout page.
+Customer account pages
+is_account_page()
+Returns true on the customer’s account pages.
+Endpoint
+is_wc_endpoint_url()
+Returns true when viewing a WooCommerce endpoint
+is_wc_endpoint_url( 'order-pay' )
+When the endpoint page for order pay is being displayed.
+is_wc_endpoint_url( 'order-received' )
+When the endpoint page for order received is being displayed.
+is_wc_endpoint_url( 'view-order' )
+When the endpoint page for view order is being displayed.
+is_wc_endpoint_url( 'edit-account' )
+When the endpoint page for edit account is being displayed.
+is_wc_endpoint_url( 'edit-address' )
+When the endpoint page for edit address is being displayed.
+is_wc_endpoint_url( 'lost-password' )
+When the endpoint page for lost password is being displayed.
+is_wc_endpoint_url( 'customer-logout' )
+When the endpoint page for customer logout  is being displayed.
+is_wc_endpoint_url( 'add-payment-method' )
+When the endpoint page for add payment method is being displayed.</p>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $('#menu-bars').click(function() {
+  	$('body').css('transform', 'translateX(310px)');
+  	$('#widoox-header-menu #widoox-fade').css('display', 'block');
+  	$('body').css({
+  		'height': '100vh',
+  		'overflow': 'hidden'		
+  	});
+  });
+  $('#widoox-header-menu #widoox-fade').click(function() {
+  	$(this).css('display', 'none');
+  	$('body, #widoox-header-menu .wrapper').css({
+  		'transform': 'translateX(0px)',
+  		'height': 'initial',
+  		'overflow': 'scroll'		
+  	});
+  });
+  </script>
+</body>
+</html>
